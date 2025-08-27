@@ -1,3 +1,15 @@
+# Check Strong Number
+
+# (A number is strong if sum of factorial of digits = number)
+
+# Input: 145 → 1!+4!+5!=145
+
+# Output: Strong Number
+
+# Input: 123
+
+# Output: Not Strong Number
+
 number = int(input("Enter the number : "))
 total = 0
 temp = number

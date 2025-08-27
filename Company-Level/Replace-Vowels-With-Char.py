@@ -1,3 +1,9 @@
+# Replace Vowels with ‘*’ in a String
+
+# Input: "Interview"
+
+# Output: "*nt*rv**w"
+
 word = input("Enter the word : ")
 ch = input("Enter the character : ")
 result = []

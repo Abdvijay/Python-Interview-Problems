@@ -1,3 +1,10 @@
+# Print Numbers in Words
+
+# Input: 507
+
+# Output: "Five Hundred and Seven"
+
+
 number = int(input("Enter the 3 digit number : "))
 ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",

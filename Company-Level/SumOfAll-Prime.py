@@ -1,3 +1,9 @@
+# Sum of All Prime Numbers in Range
+
+# Input: 1 to 10
+
+# Output: 17 (2+3+5+7)
+
 number = int(input("Enter the number : "))
 result = []
 for i in range(2,number):
