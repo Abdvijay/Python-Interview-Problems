@@ -1,3 +1,6 @@
+# Enter the string : appa
+# The given string appa is palindrome
+
 if __name__ == '__main__':
     str = input("Enter the string : ")
     rev = ''

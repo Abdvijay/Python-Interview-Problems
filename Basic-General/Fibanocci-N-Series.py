@@ -1,3 +1,6 @@
+# Enter the number : 5
+# [0, 1, 1, 2, 3]
+
 number = int(input("Enter the number : "))
 f1, f2 = 0, 1
 result = [f1, f2]

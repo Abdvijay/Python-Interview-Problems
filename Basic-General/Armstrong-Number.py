@@ -1,3 +1,7 @@
+# Enter the number : 153
+# The given number 153 is Armstrong number
+
+
 number = int(input("Enter the number : "))
 temp = number
 sum = 0

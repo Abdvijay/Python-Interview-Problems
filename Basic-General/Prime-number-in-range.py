@@ -1,3 +1,6 @@
+# Enter the number : 10
+# [2, 3, 5, 7]
+
 number = int(input("Enter the number : "))
 lst = []
 for i in range(2,number+1):

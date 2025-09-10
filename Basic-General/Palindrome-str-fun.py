@@ -1,3 +1,6 @@
+# Enter the string : vijay
+# The given string vijay is not a palindrome
+
 if __name__ == '__main__':
     str = input("Enter the string : ")
     rev = str[::-1]

@@ -1,3 +1,6 @@
+# Enter the number : 5
+# 0 1 1 2 3
+
 num = int(input("Enter the number : "))
 f1,f2 = 0,1
 print(f1, f2, end=" ")

@@ -1,3 +1,9 @@
+# Enter the first number : 4
+# Enter the second number : 5
+# Enter the third number : 6
+# 6 is the Largest number
+
+
 a = int(input("Enter the first number : "))
 b = int(input("Enter the second number : "))
 c = int(input("Enter the third number : "))

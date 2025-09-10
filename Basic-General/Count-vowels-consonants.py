@@ -1,3 +1,8 @@
+# Enter the string : vijay
+# Given String : vijay
+# Vowels Count : 2
+# Consonant Count : 3
+
 str = input("Enter the string : ")
 vowels = ['a','e','i','o','u','A','E','I','O','U']
 vowels_count = 0

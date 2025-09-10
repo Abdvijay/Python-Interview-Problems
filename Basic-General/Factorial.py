@@ -1,3 +1,6 @@
+# Enter the number to find a factorial : 5
+# The factorial of 5 is 120
+
 def fact(num):
     result = 1
     if num == 1:
