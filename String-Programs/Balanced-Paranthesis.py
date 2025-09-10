@@ -1,3 +1,6 @@
+# Enter the expression with paranthesis : (a+b(b))
+# The expression (a+b(b)) is perfectly balanced.
+
 expression = input("Enter the expression with paranthesis : ")
 openPara, closePara = 0, 0
 for char in expression:

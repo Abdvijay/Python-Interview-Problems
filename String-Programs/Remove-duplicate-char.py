@@ -1,3 +1,6 @@
+# Enter the string : programming
+# progamin
+
 str = input("Enter the string : ")
 lst = []
 for i in str:

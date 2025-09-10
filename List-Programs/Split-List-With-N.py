@@ -1,3 +1,7 @@
+# Enter the list elements : 1 2 3 4 5 6 7 8 9 10
+# Enter the N : 3
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+
 lst = list(map(int,input("Enter the list elements : ").split()))
 N = int(input("Enter the N : "))
 result = []

@@ -1,3 +1,6 @@
+# Enter the string : mississippi
+# m
+
 str = input("Enter the string : ")
 lst = []
 for i in str:

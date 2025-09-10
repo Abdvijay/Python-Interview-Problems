@@ -1,3 +1,6 @@
+# Enter the string : abc  
+# ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+
 from itertools import permutations
 
 str = input("Enter the string : ")

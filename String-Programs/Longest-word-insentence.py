@@ -1,3 +1,6 @@
+# Enter the sentence: i love programming  
+# The longest word is: programming
+
 sentence = input("Enter the sentence: ").split()
 longest_word = ""
 
