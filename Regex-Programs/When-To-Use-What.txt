@@ -1,0 +1,9 @@
+When to use what?
+
+✅ match → when you only care if the string starts with the pattern (like validating emails, phone numbers).
+
+✅ search → when you need the first occurrence anywhere in the string.
+
+✅ findall → when you need all matches (but just the values).
+
+✅ finditer → when you need all matches with details (like positions, groups).
