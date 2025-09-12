@@ -1,9 +1,37 @@
 When to use what?
 
-✅ match → when you only care if the string starts with the pattern (like validating emails, phone numbers).
+✅ match → Tries to match the pattern only at the beginning of the string.
 
-✅ search → when you need the first occurrence anywhere in the string.
+✅ search → Searches the string for the first occurrence of the pattern (anywhere).
 
 ✅ findall → when you need all matches (but just the values).
 
 ✅ finditer → when you need all matches with details (like positions, groups).
+
+✅ split → Splits the string by the regex pattern.
+
+✅ sub → Replaces all occurrences of pattern with repl.
+
+✅ fullmatch → Matches the entire string against the pattern.
+
+| Pattern | Meaning                            | Example                             | Matches            |                    |                 |
+| ------- | ---------------------------------- | ----------------------------------- | ------------------ | ------------------ | --------------- |
+| `.`     | Any character except newline       | `re.findall(r".", "cat")`           | `['c','a','t']`    |                    |                 |
+| `^`     | Start of string                    | `re.findall(r"^cat", "cat dog")`    | `['cat']`          |                    |                 |
+| `$`     | End of string                      | `re.findall(r"dog$", "cat dog")`    | `['dog']`          |                    |                 |
+| `\d`    | Digit (0–9)                        | `re.findall(r"\d", "a1b2c3")`       | `['1','2','3']`    |                    |                 |
+| `\D`    | Non-digit                          | `re.findall(r"\D", "a1b2")`         | `['a','b']`        |                    |                 |
+| `\w`    | Word character (a-z, A-Z, 0-9, \_) | `re.findall(r"\w", "a_1!")`         | `['a','_','1']`    |                    |                 |
+| `\W`    | Non-word character                 | `re.findall(r"\W", "a_1!")`         | `['!']`            |                    |                 |
+| `\s`    | Whitespace                         | `re.findall(r"\s", "a b\tc")`       | `[' ', '\t']`      |                    |                 |
+| `\S`    | Non-whitespace                     | `re.findall(r"\S", "a b")`          | `['a','b']`        |                    |                 |
+| `*`     | 0 or more                          | `re.findall(r"ab*", "abb ab a")`    | `['abb','ab','a']` |                    |                 |
+| `+`     | 1 or more                          | `re.findall(r"ab+", "abb ab a")`    | `['abb','ab']`     |                    |                 |
+| `?`     | 0 or 1                             | `re.findall(r"ab?", "abb ab a")`    | `['ab','ab','a']`  |                    |                 |
+| `{n}`   | Exactly n                          | `re.findall(r"\d{3}", "1234 567")`  | `['123','567']`    |                    |                 |
+| `{n,}`  | At least n                         | `re.findall(r"\d{2,}", "1 12 123")` | `['12','123']`     |                    |                 |
+| `{n,m}` | Between n and m                    | `re.findall(r"\d{1,2}", "1234")`    | `['12','34']`      |                    |                 |
+| `[]`    | Character set                      | `re.findall(r"[aeiou]", "apple")`   | `['a','e']`        |                    |                 |
+| `[^]`   | Negated set                        | `re.findall(r"[^aeiou]", "apple")`  | `['p','p','l']`    |                    |                 |
+| \`      | \`                                 | OR                                  | \`re.findall(r"cat | dog", "cat dog")\` | `['cat','dog']` |
+| `()`    | Grouping                           | `re.findall(r"(ab)+", "ababab")`    | `['ababab']`       |                    |                 |
