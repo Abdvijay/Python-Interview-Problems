@@ -10,7 +10,7 @@
 
 # -------------------------------------------------------------------------------------------------------------------------------------
 
-# 2. Indentation Error -? Raised when indentation is not correct
+# 2. Indentation Error -> Raised when indentation is not correct
 
 # def addition(a,b):
 # print(a+b)
