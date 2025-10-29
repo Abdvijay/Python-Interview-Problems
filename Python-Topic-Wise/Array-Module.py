@@ -78,3 +78,10 @@ print(f'Reverse of an array {arr}') # Reverse of an array array('i', [2, 3, 4, 5
 lst = [1,2,3,4,5,6]
 arr = array('i',lst)
 print(arr[2:5]) # array('i', [3, 4, 5])
+
+# 12. Updating an array element
+
+arr = array('i',[1,2,3,4,5])
+print(f'Before updating {arr}') # Before updating array('i', [1, 2, 3, 4, 5])
+arr[2] = 100
+print(f'After updating {arr}') # After updating array('i', [1, 2, 100, 4, 5])
