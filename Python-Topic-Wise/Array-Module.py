@@ -72,3 +72,9 @@ print(f'Length of an array is {len(arr)}') # Length of an array is 5
 arr = array('i',[1,5,4,3,2])
 arr.reverse()
 print(f'Reverse of an array {arr}') # Reverse of an array array('i', [2, 3, 4, 5, 1])
+
+# 11. Slicing an array
+
+lst = [1,2,3,4,5,6]
+arr = array('i',lst)
+print(arr[2:5]) # array('i', [3, 4, 5])
