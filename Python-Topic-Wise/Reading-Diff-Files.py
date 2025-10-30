@@ -100,6 +100,8 @@ except FileNotFoundError:
 except Exception as e:
     print(f"An error occurred: {e}")
 
+# ----------------------------------------------------------------------------------------------------------------
+
 # 7. Importing image file using matplotlib library
 
 from matplotlib import pyplot as plt 
