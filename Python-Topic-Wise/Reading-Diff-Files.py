@@ -13,6 +13,8 @@ print("")
 # 1  Swathi     Java  Thanjavur
 # 2   Raman      SQL    Chennai
 
+# ----------------------------------------------------------------------------------------------------------------
+
 # 2. Read Excel file in Python
 
 file_path = 'Python-Topic-Wise/Excel_File_Imported.xlsx'
@@ -27,6 +29,8 @@ print("")
 # 2        Uzhavan SF      Thanjavur  Chennai
 # 3       Pandiyan SF        Madurai  Chennai
 # 4       Rockfort SF         Trichy  Chennai
+
+# ----------------------------------------------------------------------------------------------------------------
 
 # 3. Read Text file in Python
 
@@ -46,6 +50,8 @@ with open('Python-Topic-Wise/Text_File_Imported.txt','r') as file:
 
 # ['Hi this is Vijay\n', 'From Tirunelveli']
 
+# ----------------------------------------------------------------------------------------------------------------
+
 # 4. Copying Image file in Python - This will print the binary code of Image you can copied image using this
 
 # read_img = open('Python-Topic-Wise/Image.jpg','rb')
@@ -55,7 +61,10 @@ with open('Python-Topic-Wise/Text_File_Imported.txt','r') as file:
 # for byt in read_img:
 #     copied_img.write(byt)
 
+# ----------------------------------------------------------------------------------------------------------------
+
 # 5. Importing an Image in Python using cv2 library
+# Note : Before using this library -> in cmd prompt run this command -> pip install opencv-python
 
 import cv2
 
@@ -74,3 +83,30 @@ else:
     cv2.imshow("Resized Image", resized_image)
     cv2.waitKey(0) # Waits indefinitely until a key is pressed
     cv2.destroyAllWindows() # Destroys all opened OpenCV windows
+
+# ----------------------------------------------------------------------------------------------------------------
+
+# 6. Importing image file using pillow library
+# Note : Before using this library -> in cmd prompt run this command -> pip install pillow
+from PIL import Image
+
+image_path = "Python-Topic-Wise/Image.jpg"
+try:
+    img = Image.open(image_path) # Open the image
+    img.show() # Display the image
+    print(f"Image '{image_path}' displayed successfully.")
+except FileNotFoundError:
+    print(f"Error: Image file not found at '{image_path}'. Please check the path.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+# 7. Importing image file using matplotlib library
+
+from matplotlib import pyplot as plt 
+
+image_path = "Python-Topic-Wise/Image.jpg"
+
+image = plt.imread(image_path)
+plt.imshow(image)
+plt.title("My Image")
+plt.show()
