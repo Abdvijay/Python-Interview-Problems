@@ -74,6 +74,10 @@ nums = [0,4,-2,-5,3,-7]
 positives = tuple(filter(pos,nums))
 print(f'10. Finding all positive numbers in tuple using filter() without lambda         : {positives}')
 
+# III. reduce() - Combine all elements into one value.
+#               - Must import reduce from functools module.
+#               - Simply when you want to accumulate or combine all items into a single result (like sum, product, max, etc.).
+
 # 11. Sum of all numbers using reduce()
 
 from functools import reduce
