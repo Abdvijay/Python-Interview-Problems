@@ -2,17 +2,38 @@ import mysql.connector
 
 tables = []
 table_fields = []
+databases = []
 
 def get_table_name():
     table = input("Enter the table name : ")
     return table
 
 def show_databases():
-    cursor.execute("SHOW DATABASES;")
-    all_databases = cursor.fetchall()
-    print("\n------------------List of Databases------------------\n")
-    for database in all_databases:
-        print(database)
+    try:
+        cursor.execute("SHOW DATABASES;")
+        all_databases = cursor.fetchall()
+        print("\n------------------List of Databases------------------\n")
+        for database in all_databases:
+            print(database)
+            databases.append(database[0])
+    except mysql.connector.Error as e:
+            print(f"Error in showing databaes : {e}")
+
+def choose_database():
+    while True:
+        show_databases()
+        database_name = input("\nChoose one database : ")
+        print("")
+        try:
+            if database_name not in databases:
+                print("Invalid database entered. Please enter valid database :)")
+            else:
+                cursor.execute(f"USE {database_name}")
+                print("Database connected successfully...!!!")
+                execute_tables()
+                break
+        except mysql.connector.Error as e:
+            print(f"Error connecting to MySQL: {e}")
 
 def show_fields(table_name):
     table_fields.clear()
@@ -21,11 +42,14 @@ def show_fields(table_name):
         table_fields.append(col[0])
 
 def execute_tables():
-    cursor.execute("SHOW TABLES;")
-    all_tables = cursor.fetchall()
-    tables.clear()
-    for table in all_tables:
-        tables.append(table[0])
+    try:
+        cursor.execute("SHOW TABLES;")
+        all_tables = cursor.fetchall()
+        tables.clear()
+        for table in all_tables:
+            tables.append(table[0])
+    except mysql.connector.Error as e:
+            print(f"Error in execute tables : {e}")
 
 def show_tables():
     print("\n------------------List of tables------------------\n")
@@ -133,70 +157,80 @@ def drop_table():
         execute_tables()
 
 if __name__ == "__main__":
-    conn = mysql.connector.connect(host = "localhost", username = "root", password = "1234", database = "python_mysql")
-    cursor = conn.cursor()
-    print("Database connected successfully !!!")
-    execute_tables()
-    while True:
-        print("\n------------------Welcome to Python_Mysql Database world------------------")
-        print("1. SHOW DATABASES QUERY")
-        print("2. SHOW TABLES QUERY")
-        print("3. CREATE TABLE QUERY")
-        print("4. INSERT QUERY")
-        print("5. UPDATE QUERY")
-        print("6. DELETE QUERY")
-        print("7. SELECT QUERY")
-        print("8. DESC QUERY")
-        print("9. TRUNCATE TABLE")
-        print("10. DROP TABLE")
-        print("11. EXIT\n")
-        choose = int(input("Choose only one above option (1 TO 11) : "))
-        print("")
-        if choose == 1:
-            show_databases()
-            print("")
-        elif choose == 2:
-            show_tables()
-            print("")
-        elif choose == 3:
-            create_table_query() 
-        elif choose == 4:
-            insert_query()
-        elif choose == 5:
-            update_query() 
-        elif choose == 6:
-            delete_query()  
-        elif choose == 7:
-            select()   
-        elif choose == 8:
-            print(f"Tables in your database -->> {tables}")
-            table_name = get_table_name()
-            if table_name not in [t.lower() for t in tables]:
-                print("Table does not exist in this database. Kindly check it once :)")
-            else:
-                desc = describe(table_name)
-                print("\nField\t\tType\n")
-                for rows in desc:
-                    count = 0
-                    for field in rows:
-                        print(field,end="\t\t")
-                        count += 1
-                        if count == 2:
-                            break
-                    print("")
+    try:
+        conn = mysql.connector.connect(host = "localhost", username = "root", password = "1234")
+        if conn.is_connected():
+            print("Connected to MySQL server successfully...(Without database)!!!")
+            cursor = conn.cursor()
+            choose_database()
+            while True:
+                print("\n------------------Welcome to Python_Mysql Database world------------------\n")
+                print("1. SHOW DATABASES QUERY")
+                print("2. CHANGE DATABASE")
+                print("3. SHOW TABLES QUERY")
+                print("4. CREATE TABLE QUERY")
+                print("5. INSERT QUERY")
+                print("6. UPDATE QUERY")
+                print("7. DELETE QUERY")
+                print("8. SELECT QUERY")
+                print("9. DESC QUERY")
+                print("10. TRUNCATE TABLE")
+                print("11. DROP TABLE")
+                print("12. EXIT\n")
+                choose = int(input("Choose only one above option (1 TO 12) : "))
                 print("")
-                
-        elif choose == 9:
-            truncate_table()
+                if choose == 1:
+                    show_databases()
+                    print("")
+                elif choose == 2:
+                    choose_database()
+                elif choose == 3:
+                    show_tables()
+                    print("")
+                elif choose == 4:
+                    create_table_query() 
+                elif choose == 5:
+                    insert_query()
+                elif choose == 6:
+                    update_query() 
+                elif choose == 7:
+                    delete_query()  
+                elif choose == 8:
+                    select()   
+                elif choose == 9:
+                    print(f"Tables in your database -->> {tables}")
+                    table_name = get_table_name()
+                    if table_name not in [t.lower() for t in tables]:
+                        print("Table does not exist in this database. Kindly check it once :)")
+                    else:
+                        desc = describe(table_name)
+                        print("\nField\t\tType\n")
+                        for rows in desc:
+                            count = 0
+                            for field in rows:
+                                print(field,end="\t\t")
+                                count += 1
+                                if count == 2:
+                                    break
+                            print("")
+                        print("")
+                        
+                elif choose == 10:
+                    truncate_table()
+                    
+                elif choose == 11:
+                    drop_table()
+                    
+                elif choose == 12:
+                    print("Thank you for using my program :)")
+                    break
+                else:
+                    print("Invalid option X")
+                    print("Please choose correct option :)")
+                    
+                conn.commit()
             
-        elif choose == 10:
-            drop_table()
-            
-        elif choose == 11:
-            print("Thank you for using my program :)")
-            break
-        else:
-            print("Invalid option X")
-            print("Please choose correct option :)")
-            
-        conn.commit()
+    except mysql.connector.Error as e:
+        print(f"Error connecting to MySQL: {e}")
+    finally:
+        conn.close()
