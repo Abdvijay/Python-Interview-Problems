@@ -9,7 +9,8 @@ class Besant_Technology:
             "Java Full Stack",
             {1:"11AM - 12PM",2:"1PM - 2PM"}
         ],
-        3: ["Data Analyst",
+        3: [
+            "Data Analyst",
            {1:"8AM - 9AM",2:"6PM - 7PM",3:"7PM - 8PM"}
         ]
     }
