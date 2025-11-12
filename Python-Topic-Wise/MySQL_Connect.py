@@ -82,7 +82,7 @@ def delete_query():
 
 def select():
     print(f"Tables in your database -->> {tables}")
-    table_name = get_table_name()
+    table_name = get_table_name().strip()
     if table_name not in tables:
         print("Table does not exist in this database. Kindly check it once :)")
     else:
@@ -92,6 +92,7 @@ def select():
         if opt == 1:
             query = f"SELECT * FROM {table_name}"
             hasValue = True
+            cursor.execute(query)
         elif opt == 2:
             print(f"Your table has these fields only -->> {table_fields}")
             fields = list(map(str,input("Enter the field names separated by commas: ").split(",")))
@@ -101,27 +102,28 @@ def select():
                     return
             query = f"SELECT {','.join(fields)} FROM {table_name}"
             hasValue = False
+            cursor.execute(query)
         else:
             print("Choose valuebale option :)")
-        cursor.execute(query)
+            return False
         result = cursor.fetchall()
         if result:
             if hasValue:
                 print("")
                 for col in desc:
-                    print(col[0], end="\t\t")
+                    print(col[0].ljust(15,' '), end="\t")
                 print("")
                 print("")
             else:
                 print("")
                 for field in fields:
-                    print(field,end="\t\t")
+                    print(field.ljust(15,' '),end="\t")
                 print("")
                 print("")
 
             for row in result:
                 for value in row:
-                    print(value,end="\t\t")
+                    print(str(value).ljust(15,' '),end="\t")
                 print("")
         else:
             print("Table is empty :)")
@@ -208,7 +210,7 @@ if __name__ == "__main__":
                         for rows in desc:
                             count = 0
                             for field in rows:
-                                print(field,end="\t\t")
+                                print(field.ljust(15,' '),end="\t")
                                 count += 1
                                 if count == 2:
                                     break
