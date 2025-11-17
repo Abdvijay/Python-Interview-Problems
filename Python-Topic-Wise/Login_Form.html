@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Login Form</title>
+    <script>
+        function login_form_validation(){
+            var username = document.getElementById("username").value.trim();
+            var password = document.getElementById("password").value.trim();
+
+            console.log("username : ",username,"\npassword : ",password);
+            if(username === ""){
+                alert("Username cannot be empty");
+                return false;
+            }
+            
+            if(password === ""){
+                alert("Password cannot be empty");
+                return false;
+            }
+
+            if(username === "admin"){
+                if(password === "admin@123"){
+                    window.location.href = "./Welcome_page.html";
+                    document.getElementById("login_form").reset();
+                    return false;
+                }else{
+                    alert("Wrong password entered :)")
+                    return false;
+                }
+            }else{
+                alert("Sorry! Username doesn't match, try another username :)")
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h2>LOGIN FORM</h2>
+        <form id="login_form" onsubmit="return login_form_validation()">
+            <table cellspacing="10">
+                <tr>
+                    <td>Username : </td>
+                    <td><input type="text" id="username"></td>
+                </tr>
+                <tr>
+                    <td>Password : </td>
+                    <td><input type="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;"><input type="submit" id="submit"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
