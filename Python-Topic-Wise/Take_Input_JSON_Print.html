@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validate_form() {
+            var username = document.getElementById("username").value.trim();
+            var phone_number = document.getElementById("phone_number").value.trim();
+            var email_id = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value.trim();
+            var confirm_password = document.getElementById("confirm_password").value.trim();
+
+            // Username Validation
+            if (username == "") {
+                alert("Username cannot blank or empty");
+                return false;
+            }
+
+            // Phone Validation (exact 10 digits, numeric only)
+            var phonePattern = /^[0-9]{10}$/;
+
+            if (!phonePattern.test(phone_number)) {
+                alert("Entered phone number length is " + phone_number.length + " So Please enter a valid 10-digit phone number");
+                return false;
+            }
+
+            // Email Validation (simple + perfect basic regex)
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailPattern.test(email_id)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            // Password Validation
+            var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-={}[\]:;"'<>,.?/]).{6,}$/;
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must contain:\n- At least 1 uppercase letter\n- At least 1 number\n- At least 1 symbol\n- Minimum 6 characters");
+                return false;
+            }
+
+            // Confirm Password Validation
+            if (password !== confirm_password) {
+                alert("Confirm Password doesn't match with your original passowrd !!!")
+                return false;
+            }
+
+            var json_object = {
+                "username": username,
+                "phone_number": phone_number,
+                "email": email_id,
+                "password": password,
+                "confirm_password": confirm_password
+            };
+
+            console.log(json_object);
+            alert("Registration Successfull and Let me display your detail in table format :)");
+            display_table_format(json_object);
+            document.getElementById("registration_form").reset();
+
+            return false;
+        }
+
+        function display_table_format(json_object) {
+            var table_div = document.getElementById("output_table");
+            var table = `
+                <h3>Registered User Details</h3>
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    <tr>
+                `;
+
+            for (var key in json_object) {
+                table += `
+                    <tr>
+                        <td>${key}</td>
+                        <td>${json_object[key]}</td>
+                    </tr>
+                `;
+            }
+
+            table += `</table>`;
+            table_div.innerHTML = table;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h2>REGISTRATION FORM</h2>
+        <form id="registration_form" onsubmit="return validate_form()">
+            <table cellspacing="10">
+                <tr>
+                    <td>Username :</td>
+                    <td><input type="text" id="username"></td>
+                </tr>
+
+                <tr>
+                    <td>Phone Number :</td>
+                    <td><input type="number" id="phone_number"></td>
+                </tr>
+
+                <tr>
+                    <td>Email Id :</td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+
+                <tr>
+                    <td>Password :</td>
+                    <td><input type="password" id="password"></td>
+                </tr>
+
+                <tr>
+                    <td>Confirm Password :</td>
+                    <td><input type="password" id="confirm_password"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <input type="submit" id="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="output_table"></div>
+    </center>
+</body>
+
+</html>
