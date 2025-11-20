@@ -1,19 +1,15 @@
-rows = 5
+rows = 4
     
 for i in range(1, rows + 1):
     # Calculate the starting number of the row (Triangular Number: 1, 3, 6, 10...)
     # Formula: i * (i + 1) / 2
     start_of_row = int(i * (i + 1) / 2)
     
-    row_output = ""
-    
-    # Loop 'i' times (length of the row)
+    # Run this loop using rows and print the start of row and reduce by one
     for j in range(i):
-        # Count down from the starting number
-        num_to_print = start_of_row - j
-        row_output += str(num_to_print) + " "
-            
-    print(row_output.strip())
+        print(start_of_row,end=" ")
+        start_of_row -= 1
+    print("")            
 
 # OUTPUT
 
