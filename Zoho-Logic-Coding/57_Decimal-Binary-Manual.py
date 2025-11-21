@@ -12,3 +12,11 @@ while True:
         result = binary[::-1]
         print(f"The binary value of {temp} is {''.join(result)}")
         break
+
+# Sample Input and Sample Output
+
+# Enter the decimal value : 10
+# The binary value of 10 is 1010
+
+# Enter the decimal value : 1
+# The binary value of 1 is 1
