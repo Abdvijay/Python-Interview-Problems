@@ -6,7 +6,8 @@
 
 lst = list(map(int,input("Enter the list elements : ").split()))
 original = []
-for i in lst:
-    if i not in original:
-        original.append(i)
+# for i in lst:
+#     if i not in original:
+#         original.append(i)
+[original.append(a) for a in lst if a not in original]
 print(f"After removing duplicates {original}")
