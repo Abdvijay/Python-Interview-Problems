@@ -8,7 +8,7 @@
 
 lst = list(map(int,input("Enter the list elements : ").split()))
 k = int(input("Enter the k position : "))
-k = k % len(lst)
+k = k % len(lst) # It stop the executing all position rotating iteration
 right_rotate = [lst[(i-k) % len(lst)] for i in range(len(lst))]
 print(f"List {lst} After rotating right rotation is {right_rotate}")
 
