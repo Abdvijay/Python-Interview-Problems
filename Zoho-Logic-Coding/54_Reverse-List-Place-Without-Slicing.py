@@ -11,9 +11,7 @@ l = len(lst)
 count = 0
 print(f"Before Reverse List : {lst}")
 for i in range(l):
-    temp = lst[i]
-    lst[i] = lst[l-i-1]
-    lst[l-i-1] = temp
+    lst[i],lst[l-i-1] = lst[l-i-1],lst[i]
     count += 1
     if count == mid:
         break
