@@ -87,12 +87,6 @@
 # for i in range(rows-1,0,-1):
 #     print(" " *  (rows - i) + "* " * i)
 
-# rows = int(input("Enter the height of the pyramind (odd number only) : "))
-# mid = rows + 1 // 2
-# for i in range(1,mid+1):
-#     print(" " * (mid - i) + "* " * i)
-# for i in range(mid-1,0,-1):
-#     print(" " * (mid - i) + "* " * i)
 
 # 8. Hollow Square Pattern
 # * * * * * 
