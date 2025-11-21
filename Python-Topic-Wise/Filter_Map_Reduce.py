@@ -86,7 +86,7 @@ nums = [1,2,3,4,5]
 total = reduce(lambda x,y: x+y,nums)
 print(f'11. Sum of all numbers {nums} using reduce()                           : {total}')
 
-# 12. Product of all numbers using filter() without lambda
+# 12. Product of all numbers using reduce() without lambda
 
 from functools import reduce
 
@@ -97,7 +97,7 @@ nums = [1,2,3,4,5]
 product = reduce(multiply,nums)
 print(f'12. Product of all numbers {nums} without lambda using reduce()        : {product}')
 
-# 13. Find maximum of value using filter()
+# 13. Find maximum of value using reduce()
 
 from functools import reduce
 
