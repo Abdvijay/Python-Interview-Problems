@@ -12,6 +12,8 @@ for i in range(len(minimum_len)):
             break
     if flag:
         result.append(temp)
+    else:
+        break
 if len(result) == 0:
     result = '""'
 else:
