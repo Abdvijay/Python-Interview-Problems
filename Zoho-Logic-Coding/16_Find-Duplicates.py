@@ -17,12 +17,20 @@
 #         result.append(i)
 # print(f"The list {lst} has these duplicate elements {result}")
 
+# lst = list(map(int,input("Enter the list elements : ").split()))
+# dup = []
+# without_dup = []
+# for i in lst:
+#     if i not in without_dup:
+#         without_dup.append(i)
+#     else:
+#         dup.append(i)
+# print(f"The list {lst} has these duplicate elements {dup}")
+
 lst = list(map(int,input("Enter the list elements : ").split()))
-dup = []
-without_dup = []
+result = []
 for i in lst:
-    if i not in without_dup:
-        without_dup.append(i)
-    else:
-        dup.append(i)
-print(f"The list {lst} has these duplicate elements {dup}")
+    if lst.count(i) > 1:
+        if i not in result:
+            result.append(i)
+print(f"The list {lst} has these duplicate elements {result}")
