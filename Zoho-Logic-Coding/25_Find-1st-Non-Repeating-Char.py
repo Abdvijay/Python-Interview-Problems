@@ -15,3 +15,11 @@ for key,values in non_repeating_char.items():
     if values == 1:
         print(f"First non repeating char in a string {string} is {key}")
         break
+
+# Another way to do the same is using count function as shown below
+
+# string = input("Enter the string : ")
+# for letter in string:
+#     if string.count(letter) == 1: 
+#         print(letter) 
+#         break
