@@ -16,3 +16,13 @@ for i in range(len(merged)):
         if merged[j] > merged[j+1]:
             merged[j], merged[j + 1] = merged[j + 1], merged[j]
 print(f"After sorting          : {merged}")
+
+# lst1 = list(map(int,input("Enter the list 1 elements : ").split(" ")))
+# lst2 = list(map(int,input("Enter the list 2 elements : ").split(" ")))
+# merged = lst1 + lst2
+# print(merged)
+# for i in range(0,len(merged)):
+#     for j in range(0,len(merged)):
+#         if merged[i] < merged[j]:
+#             merged[i], merged[j] = merged[j], merged[i]
+# print(merged)

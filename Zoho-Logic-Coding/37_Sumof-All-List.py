@@ -9,3 +9,8 @@ total = 0
 for i in lst:
     total += i
 print(f"The sum of all list elements {lst} is {total}")
+
+# Alternative method using reduce function
+# from functools import reduce
+# lst = list(map(int,input("Enter the list elements : ").split(" ")))
+# print(reduce(lambda x,y: x+y,lst))

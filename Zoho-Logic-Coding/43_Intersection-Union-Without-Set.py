@@ -3,7 +3,7 @@
 # Enter the list 2 elements : 4 5 6 7 8
 
 # Sample Output
-# Union [1, 2, 3, 4, 5, 4, 5, 6, 7, 8]
+# Union [1, 2, 3, 4, 5, 6, 7, 8]
 # Intersection [4, 5]
 
 lst1 = list(map(int,input("Enter the list 1 elements : ").split()))
@@ -17,6 +17,15 @@ for i in lst1:
 
 union = [x for x in lst1]
 for i in lst2:
-    union.append(i)
+    if i not in lst1:
+        union.append(i)
 print(f"Union {union}")
 print(f"Intersection {intersection}")
+
+# Alternative method using list comprehension
+lst1 = list(map(int,input("Enter the list 1 elements : ").split(" ")))
+lst2 = list(map(int,input("Enter the list 2 elements : ").split(" ")))
+res = [i for i in lst2 if i not in lst1]
+inter = [i for i in lst1 if i in lst2]
+print(f"Union        of Two list is : {lst1+res}")
+print(f"Intersection of Two list is : {inter}")
