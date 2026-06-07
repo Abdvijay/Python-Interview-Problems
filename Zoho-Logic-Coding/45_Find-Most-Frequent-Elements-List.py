@@ -17,3 +17,15 @@ for key,value in dic.items():
     if max_value == value:
         result.append(key)
 print(f"The most frequent elements are {result} which is {max_value} times repeated")
+
+# Another way to solve most frequence problem
+
+# lst = list(map(int,input("Enter the list elements : ").split()))
+# result = {}
+# for i in lst:
+#     if lst.count(i) not in result:
+#         result[lst.count(i)] = [i]
+#     else:
+#         if i not in result[lst.count(i)]:
+#             result[lst.count(i)].append(i)
+# print(f"The most frequent elements are {result[max(result)]} and the elements frequency is {max(result)}")
